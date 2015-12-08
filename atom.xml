@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-12-08T01:51:17.000Z</updated>
+  <updated>2015-12-08T01:53:12.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,8 +18,8 @@
     <title><![CDATA[Charles网络抓包工具使用]]></title>
     <link href="http://yoursite.com/2015/12/08/Charles%E7%BD%91%E7%BB%9C%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
     <id>http://yoursite.com/2015/12/08/Charles网络抓包工具使用/</id>
-    <published>2015-12-08T01:51:17.000Z</published>
-    <updated>2015-12-08T01:51:17.000Z</updated>
+    <published>2015-12-08T01:53:13.000Z</published>
+    <updated>2015-12-08T01:53:12.000Z</updated>
     <content type="html"><![CDATA[<h2 id="date:_2015-12-08_09:05:56">date: 2015-12-08 09:05:56</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">简介</span><br></pre></td></tr></table></figure>
 <p><img src="http://www.devtang.com/images/charles-logo.png" alt="charles icon"><br><a href="http://www.charlesproxy.com/" target="_blank" rel="external">Charles</a> 是在 Mac 下常用的网络封包截取工具，在做 移动开发时，我们为了调试与服务器端的网络通讯协议，常常需要截取网络封包来分析。</p>
 <p>Charles 通过将自己设置成系统的网络访问代理服务器，使得所有的网络访问请求都通过它来完成，从而实现了网络封包的截取和分析。</p>
@@ -51,8 +51,9 @@
 <li>给服务器做压力测试</li>
 <li>修改服务器返回内容</li>
 </ul>
-<p>更多详细内容参考</p>
-<h2 id="####http://www-devtang-com/blog/2015/11/14/charles-introduction/">####<a href="http://www.devtang.com/blog/2015/11/14/charles-introduction/" target="_blank" rel="external">http://www.devtang.com/blog/2015/11/14/charles-introduction/</a></h2>]]></content>
+<p>更多详细内容参考<br><a href="http://www.devtang.com/blog/2015/11/14/charles-introduction/" target="_blank" rel="external">http://www.devtang.com/blog/2015/11/14/charles-introduction/</a></p>
+<hr>
+]]></content>
     <summary type="html">
     <![CDATA[<h2 id="date:_2015-12-08_09:05:56">date: 2015-12-08 09:05:56</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="l]]>
     </summary>
