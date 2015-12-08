@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-12-08T01:02:55.000Z</updated>
+  <updated>2015-12-08T01:49:00.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Charles网络抓包工具使用]]></title>
+    <link href="http://yoursite.com/2015/12/08/Charles%E7%BD%91%E7%BB%9C%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2015/12/08/Charles网络抓包工具使用/</id>
+    <published>2015-12-08T01:49:00.000Z</published>
+    <updated>2015-12-08T01:49:00.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="date:_2015-12-08_09:05:56">date: 2015-12-08 09:05:56</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">简介</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.devtang.com/images/charles-logo.png" alt="charles icon"><br><a href="http://www.charlesproxy.com/" target="_blank" rel="external">Charles</a> 是在 Mac 下常用的网络封包截取工具，在做 移动开发时，我们为了调试与服务器端的网络通讯协议，常常需要截取网络封包来分析。</p>
+<p>Charles 通过将自己设置成系统的网络访问代理服务器，使得所有的网络访问请求都通过它来完成，从而实现了网络封包的截取和分析。</p>
+<p>除了在做移动开发中调试端口外，Charles 也可以用于分析第三方应用的通讯协议。配合 Charles 的 SSL 功能，Charles 还可以分析 Https 协议。</p>
+<p>Charles 是收费软件，可以免费试用 30 天。试用期过后，未付费的用户仍然可以继续使用，但是每次使用时间不能超过 30 分钟，并且启动时将会有 10 秒种的延时。因此，该付费方案对广大用户还是相当友好的，即使你长期不付费，也能使用完整的软件功能。只是当你需要长时间进行封包调试时，会因为 Charles 强制关闭而遇到影响。</p>
+<p>Charles 主要的功能包括：</p>
+<p>截取 Http 和 Https 网络封包。<br>支持重发网络请求，方便后端调试。<br>支持修改网络请求参数。<br>支持网络请求的截获并动态修改。<br>支持模拟慢速网络。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">安装 Charles</span><br></pre></td></tr></table></figure>
+<p>去 Charles 的官方网站<a href="http://www.charlesproxy.com" target="_blank" rel="external">http://www.charlesproxy.com</a>下载最新版的 Charles 安装包，是一个 dmg 后缀的文件。打开后将 Charles 拖到 Application 目录下即完成安装。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">将 Charles 设置成系统代理</span><br></pre></td></tr></table></figure>
+<p>之前提到，Charles 是通过将自己设置成代理服务器来完成封包截取的，所以使用 Charles 的第一步是将其设置成系统的代理服务器。</p>
+<p>启动 Charles 后，第一次 Charles 会请求你给它设置系统代理的权限。你可以输入登录密码授予 Charles 该权限。你也可以忽略该请求，然后在需要将 Charles 设置成系统代理时，选择菜单中的 “Proxy” –&gt; “Mac OS X Proxy” 来将 Charles 设置成系统代理。如下所示：<br><img src="http://www.devtang.com/images/charles-pro-3.png" alt=""><br>之后，你就可以看到源源不断的网络请求出现在 Charles 的界面中。</p>
+<p>需要注意的是，Chrome 和 Firefox 浏览器默认并不使用系统的代理服务器设置，而 Charles 是通过将自己设置成代理服务器来完成封包截取的，所以在默认情况下无法截取 Chrome 和 Firefox 浏览器的网络通讯内容。如果你需要截取的话，在 Chrome 中设置成使用系统的代理服务器设置即可，或者直接将代理服务器设置成 <code>127.0.0.1:8888</code> 也可达到相同效果。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">Charles</span> 主界面介绍</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.devtang.com/images/charles-pro-4.png" alt=""><br>Charles 主要提供两种查看封包的视图，分别名为 “Structure” 和 “Sequence”。</p>
+<p>Structure 视图将网络请求按访问的域名分类。<br>Sequence 视图将网络请求按访问的时间排序。<br>大家可以根据具体的需要在这两种视图之前来回切换。请求多了有些时候会看不过来，Charles 提供了一个简单的 Filter 功能，可以输入关键字来快速筛选出 URL 中带指定关键字的网络请求。</p>
+<p>对于某一个具体的网络请求，你可以查看其详细的请求内容和响应内容。如果请求内容是 POST 的表单，Charles 会自动帮你将表单进行分项显示。如果响应内容是 JSON 格式的，那么 Charles 可以自动帮你将 JSON 内容格式化，方便你查看。如果响应内容是图片，那么 Charles 可以显示出图片的预览。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">过滤网络请求</span><br></pre></td></tr></table></figure>
+<p>通常情况下，我们需要对网络请求进行过滤，只监控向指定目录服务器上发送的请求。对于这种需求，以下几种办法：</p>
+<p>方法一：在主界面的中部的 Filter 栏中填入需要过滤出来的关键字。例如服务器的地址是：<a href="http://yuantiku.com" target="_blank" rel="external">http://yuantiku.com</a> , 那么只需要在 Filter 栏中填入 yuantiku 即可。</p>
+<p>方法二：在 Charles 的菜单栏选择 “Proxy”–&gt;“Recording Settings”，然后选择 Include 栏，选择添加一个项目，然后填入需要监控的协议，主机地址，端口号。这样就可以只截取目标网站的封包了。如下图所示：<br><img src="http://www.devtang.com/images/charles-filter-setting.jpg" alt=""><br>通常情况下，我们使用方法一做一些临时性的封包过滤，使用方法二做一些经常性的封包过滤。</p>
+<p>方法三：在想过滤的网络请求上右击，选择 “Focus”，之后在 Filter 一栏勾选上 Focussed 一项，如下图所示：<br><img src="http://www.devtang.com/images/charles-focus.png" alt=""><br>这种方式可以临时性的，快速地过滤出一些没有通过关键字的一类网络请求。</p>
+<hr>
+<ul>
+<li>截取 iPhone 上的网络封包</li>
+<li>截取 Https 通讯信息</li>
+<li>模拟慢速网络</li>
+<li>修改网络请求内容</li>
+<li>给服务器做压力测试</li>
+<li>修改服务器返回内容</li>
+</ul>
+<p>###更多详细内容参考</p>
+<h2 id="http://www-devtang-com/blog/2015/11/14/charles-introduction/"><a href="http://www.devtang.com/blog/2015/11/14/charles-introduction/" target="_blank" rel="external">http://www.devtang.com/blog/2015/11/14/charles-introduction/</a></h2>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="date:_2015-12-08_09:05:56">date: 2015-12-08 09:05:56</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="l]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[IOS中不得不知道的名词(三)]]></title>
